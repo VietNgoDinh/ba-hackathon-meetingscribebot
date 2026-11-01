@@ -2,7 +2,7 @@
 
 -   **Use case:** Not started
 -   **Clock started:** Not started
--   **Deployed URL:** https://ba-hackathon-template-our-tool.vercel.app
+-   **Deployed URL:** https://ba-hackathon-meetingscribebot-cdj2m1ksy-visionary20.vercel.app
 
 ## Team
 
