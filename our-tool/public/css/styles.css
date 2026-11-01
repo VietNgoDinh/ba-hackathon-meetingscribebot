@@ -361,3 +361,18 @@ a {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Added for SCR-01 */
+
+[hidden] {
+  display: none !important;
+}
+
+.item[data-decision="rejected"] .item-text {
+  opacity: 0.6;
+}
+
+#count[data-over="true"] {
+  color: var(--color-high);
+  font-weight: 700;
+}
