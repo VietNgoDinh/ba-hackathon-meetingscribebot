@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "type": "discussion_point",
+      "text": "The postcode lookup sandbox is working and the form passes the basic checks.",
+      "quote": "The postcode lookup sandbox is working, and the form passes our basic checks.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    },
+    {
+      "type": "decision",
+      "text": "The pilot goes ahead on the home address form only.",
+      "quote": "Okay, so we go ahead with the pilot on the home address form only.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    },
+    {
+      "type": "decision",
+      "text": "Business addresses will also be included in the pilot.",
+      "quote": "We also agreed to include business addresses in the pilot.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    },
+    {
+      "type": "action",
+      "text": "Send the signed-off confirmation letter template to Tomas.",
+      "quote": "I will send the signed-off template to Tomas by Wednesday.",
+      "owner": "Kofi Adeyemi",
+      "deadline": "by Wednesday",
+      "suggested_question": null
+    },
+    {
+      "type": "action",
+      "text": "Tell the call centre when the pilot starts.",
+      "quote": "Someone should tell the call centre when the pilot starts.",
+      "owner": "Not stated",
+      "deadline": "Not stated",
+      "suggested_question": "Who will tell the call centre when the pilot starts, and by when?"
+    }
+  ],
+  "droppedCount": 0,
+  "promptVersion": "v1 (sample, stress test)",
+  "model": "sample-data-no-ai",
+  "generatedAt": "Sample data, not a live run (stress test: item 3 has a planted quote)",
+  "isSample": true
+}

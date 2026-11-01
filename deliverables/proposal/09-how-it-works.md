@@ -7,7 +7,7 @@
 | Input | Person | The BA pastes one English transcript of a single meeting [A-07] |
 | Rule checks | Rules | The tool rejects empty or too-long text and checks the access code. No AI is involved |
 | Analysis or drafting | AI | AI reads the transcript and drafts discussion points, decisions and actions, each with a short quote. It writes "Not stated" for any missing owner or deadline and suggests a question for the BA to ask |
-| Validation | Rules | Every AI result must match the agreed format and quote its source text. Anything else is removed |
+| Validation | Rules | Every AI result must match the agreed format and quote its source text. Anything else is removed. Any owner or deadline that does not appear in the transcript is replaced with "Not stated" |
 | Decision | Person | The BA accepts, edits or rejects each result |
 | Export | Tool | The output records what was decided, with the prompt version, model and time |
 
@@ -53,7 +53,7 @@ Purple is AI and amber is the human decision.
 | Control point | Who decides | What happens without approval |
 |---|---|---|
 | Paste a transcript and run the draft (step 2) | Business Analyst | Nothing is sent to AI |
-| Resolve "Not stated" owners and deadlines (step 4) | Business Analyst | The MoM keeps "Not stated"; the tool never guesses |
+| Resolve "Not stated" owners and deadlines (step 4) | Business Analyst | The MoM keeps "Not stated". The AI is told not to guess, and any name or date that does not appear in the transcript is replaced with "Not stated" |
 | Accept, edit or reject each item (step 5) | Business Analyst | Items not accepted are left out of the downloaded MoM, or are marked as not reviewed |
 | Decide whether corrections are needed (step 8) | Business Analyst, from attendee feedback | The draft goes to step 9 unchanged |
 | Send the final MoM (step 9) | Business Analyst | The tool sends nothing; the MoM stays with the BA |

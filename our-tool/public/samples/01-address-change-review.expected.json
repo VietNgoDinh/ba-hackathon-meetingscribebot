@@ -1,0 +1,73 @@
+{
+  "items": [
+    {
+      "type": "discussion_point",
+      "text": "Customers currently phone the call centre for every address change, which is slow for them and a burden on the call centre.",
+      "quote": "Right now customers phone the call centre for every address change.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    },
+    {
+      "type": "discussion_point",
+      "text": "The portal form itself is simple to build; checking the new address against the postcode lookup service is the harder part.",
+      "quote": "The harder part is checking the new address against the postcode lookup service.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    },
+    {
+      "type": "decision",
+      "text": "A confirmation letter will be sent to the old address whenever a customer's address changes.",
+      "quote": "Compliance needs a confirmation letter sent to the old address whenever an address changes.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    },
+    {
+      "type": "decision",
+      "text": "This release covers home addresses only; business addresses wait for a later release.",
+      "quote": "Okay, so we go with home addresses only for this release.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    },
+    {
+      "type": "action",
+      "text": "Get access to the postcode lookup vendor's sandbox.",
+      "quote": "Tomas, can you get us sandbox access by Friday?",
+      "owner": "Tomas",
+      "deadline": "by Friday",
+      "suggested_question": null
+    },
+    {
+      "type": "action",
+      "text": "Draft the wording for the confirmation letter.",
+      "quote": "I will draft the wording for the confirmation letter.",
+      "owner": "Kofi Adeyemi",
+      "deadline": "Not stated",
+      "suggested_question": "By when will the confirmation letter wording be drafted?"
+    },
+    {
+      "type": "action",
+      "text": "Document what the form does when the postcode lookup service is down.",
+      "quote": "Someone needs to write down what the form does when the lookup service is down, ideally before the design review.",
+      "owner": "Not stated",
+      "deadline": "before the design review",
+      "suggested_question": "Who will write down what the form does when the lookup service is down?"
+    },
+    {
+      "type": "discussion_point",
+      "text": "Text message confirmations might be added someday, but no one has committed to them.",
+      "quote": "Someday we might add text message confirmations too, but nobody is committing to that.",
+      "owner": null,
+      "deadline": null,
+      "suggested_question": null
+    }
+  ],
+  "droppedCount": 0,
+  "promptVersion": "v1 (sample)",
+  "model": "sample-data-no-ai",
+  "generatedAt": "Sample data, not a live run",
+  "isSample": true
+}

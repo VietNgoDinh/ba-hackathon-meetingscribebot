@@ -55,13 +55,13 @@ Legend: purple is AI and amber is a human action or decision.
 - **Feature:** CF-02
 - **Actors:** ACT-03, ACT-04, ACT-01, ACT-02
 - **Trigger:** The AI model is drafting items (WF-01 step 4)
-- **Result:** Every item that reaches the BA has a quote that matches the transcript. Each missing owner or deadline shows "Not stated" with a suggested question, and the BA has either entered the answer from the attendees or kept "Not stated". The tool never fills in an owner or a deadline itself
+- **Result:** Every item that reaches the BA has a quote that matches the transcript. Each missing owner or deadline shows "Not stated" with a suggested question, and the BA has either entered the answer from the attendees or kept "Not stated". The AI is told not to guess an owner or a deadline, and any name or date that does not appear in the transcript is replaced with "Not stated". The tool adds no owner or deadline of its own
 
 | Step | Actor | Action | Objects |
 |---|---|---|---|
 | 1 | ACT-03 | Adds a short quote from the transcript to each item | OBJ-03, OBJ-04 |
 | 2 | ACT-03 | Writes "Not stated" for any missing owner or deadline on an action and suggests a question to ask | OBJ-03, OBJ-05 |
-| 3 | ACT-04 | Matches each quote against the transcript text | OBJ-04, OBJ-01 |
+| 3 | ACT-04 | Matches each quote against the transcript text, and checks that each owner and deadline wording appears in it. A name or date that does not appear is replaced with "Not stated" | OBJ-04, OBJ-05, OBJ-01 |
 | 4 | ACT-04 | Decides whether the quote is found. If not, goes to step 5. If so, goes to step 6 | OBJ-04 |
 | 5 | ACT-04 | Removes the item that has no matching quote | OBJ-03 |
 | 6 | ACT-04 | Shows each remaining item with its quote and any gap flag | OBJ-03, OBJ-04, OBJ-05 |
@@ -85,7 +85,7 @@ flowchart LR
     S10["Give owner or deadline"]
   end
   subgraph L3["MoM Drafter"]
-    S3["Match quotes to transcript"]
+    S3["Match quotes, names, dates to transcript"]
     S4{"Quote found?"}
     S5["Remove item"]
     S6["Show items, quotes, flags"]

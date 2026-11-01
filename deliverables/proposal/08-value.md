@@ -15,7 +15,7 @@ If the draft proves reliable in review, BA time could shift from transcription w
 | Time from transcript to MoM ready to send | To be measured | To be measured | Rehearsal timing, one person, one fictional sample |
 | Decisions and actions found (checked against a list of known items in the sample) | To be measured | To be measured | Rehearsal check against the sample |
 | Actions with owner and deadline stated or flagged "Not stated" | To be measured | To be measured | Rehearsal check |
-| Items an item-by-item quote check can trace to the transcript | Not available by hand | Every item carries a quote | Design of CF-02 |
+| Items an item-by-item quote check can trace to the transcript | To be measured | Every item carries a quote | Design of CF-02 |
 | MoM layout consistency | Varies by BA and meeting [A-03] | One standard layout | Design of CF-01 |
 
 ### 8.4 How we'll measure it

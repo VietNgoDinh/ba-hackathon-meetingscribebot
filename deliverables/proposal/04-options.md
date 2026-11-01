@@ -35,11 +35,11 @@ Weights come from the assumed rubric [A-01]. Scores from 1 to 5 are team judgeme
 | Criterion | Weight | Option A | Option B | Option C | Reason for the difference |
 |---|---|---|---|---|---|
 | Value for BA work | 30 | 5 | 3 | 3 | A removes the reading and writing effort and addresses the most pain points (P-01, P-02, P-04). B and C each address part of the task. |
-| Works in a live demo | 25 | 5 | 4 | 3 | A shows paste, draft and download in one pass and matches the judges' challenge. B is quick but narrower. C needs a second prepared input (a flawed MoM). |
+| Working tool and smooth demo | 25 | 5 | 4 | 3 | A shows paste, draft and download in one pass and matches the judges' challenge. B is quick but narrower. C needs a second prepared input (a flawed MoM). |
 | AI quality control and data safety | 20 | 4 | 5 | 5 | All keep the BA in review. B and C have a smaller output to check. A has more output, but quotes and "Not stated" flags make checking practical. |
-| Easy to present and defend | 15 | 5 | 3 | 3 | A maps directly to the stated challenge. B and C need an explanation of why they stop short of a full MoM. |
+| Presentation and Q&A | 15 | 5 | 3 | 3 | A maps directly to the stated challenge. B and C need an explanation of why they stop short of a full MoM. |
 | Creativity | 10 | 3 | 4 | 4 | Drafting a MoM is the expected idea. Gap chasing and cross-checking are less common. |
-| **Weighted score** | | **92** | **75** | **72** | |
+| **Weighted score** | | **92** | **75** | **70** | |
 
 ### 4.3 Recommendation
 

@@ -1,0 +1,8 @@
+[STRESS-TEST SAMPLE. Fictional data only. Used to show the quote check removing one item. Not the main demo.]
+Elena Marsh: Thanks for joining the short follow-up on the address change form.
+Ines Calloway: The postcode lookup sandbox is working, and the form passes our basic checks.
+Tomas Brandt: Good. The confirmation letter template is still waiting for compliance sign-off.
+Kofi Adeyemi: I will send the signed-off template to Tomas by Wednesday.
+Elena Marsh: Okay, so we go ahead with the pilot on the home address form only.
+Ines Calloway: Someone should tell the call centre when the pilot starts.
+Elena Marsh: Noted. That is all for today.

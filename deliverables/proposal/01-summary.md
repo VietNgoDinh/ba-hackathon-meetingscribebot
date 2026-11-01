@@ -11,4 +11,4 @@ BA teams need accurate MoMs, but today each transcript is read and written up by
 
 ### 1.3 What we're proposing
 
-The team built a Level 1 web tool with three core features: a MoM draft, evidence quotes with gap flags, and review with Word download. Wider use would need approval of the AI provider and hosting for real data, testing on real transcripts, and a decision on whether to add history.
+The team is building a Level 1 web tool with three core features: a MoM draft, evidence quotes with gap flags, and review with Word download. Wider use would need approval of the AI provider and hosting for real data, testing on real transcripts, and a decision on whether to add history.

@@ -1,0 +1,14 @@
+Elena Marsh: Thanks everyone for joining. Today we need to agree how customers change their address in the portal, and what has to happen before the build starts.
+Tomas Brandt: Right now customers phone the call centre for every address change. It is slow, and the call centre keeps asking us to take it off their plate.
+Ines Calloway: A simple form in the portal is easy to build. The harder part is checking the new address against the postcode lookup service.
+Kofi Adeyemi: Compliance needs a confirmation letter sent to the old address whenever an address changes. That is not optional.
+Tomas Brandt: Agreed, so the letter goes out every time. Now, scope. I think the form should only handle home addresses in this release, and business addresses can wait.
+Elena Marsh: Okay, so we go with home addresses only for this release. Any objections?
+Ines Calloway: None from me.
+Kofi Adeyemi: None from compliance.
+Ines Calloway: On the lookup service, I would like to try the vendor sandbox before we commit. Tomas, can you get us sandbox access by Friday?
+Tomas Brandt: Yes, I will request the sandbox access by Friday.
+Kofi Adeyemi: I will draft the wording for the confirmation letter.
+Ines Calloway: Someone needs to write down what the form does when the lookup service is down, ideally before the design review.
+Tomas Brandt: Someday we might add text message confirmations too, but nobody is committing to that.
+Elena Marsh: Understood. That is everything for today. Thanks all.
