@@ -18,12 +18,11 @@ Each person works on their own laptop and edits only their own area, which avoid
 
 ### Ask the organizers
 
-- [ ] Is the presentation inside the 3 hours? How long is each team's slot?
+- [x] Is the presentation inside the 3 hours? How long is each team's slot? No, the presentation is not inside the 3 hours
 - [ ] What are the official scoring criteria? Update `A-01` in `deliverables/assumptions.md`.
-- [ ] Will there be internet access, and can we use personal laptops?
-- [ ] May use case content go to external AI and hosting services?
-- [ ] Are the judges available for clarifying questions?
-
+- [x] Will there be internet access, and can we use personal laptops? Yes to both questions.
+- [x] May use case content go to external AI and hosting services? Yes
+- [x] Are the judges available for clarifying questions? Yes
 ### Prepare every laptop
 
 - [ ] Install VS Code, the Claude Code extension, Node.js 22 or later, and Git.

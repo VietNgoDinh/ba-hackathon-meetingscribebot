@@ -1,7 +1,7 @@
 # Status
 
--   **Use case:** Not started
--   **Clock started:** Not started
+-   **Use case:** Meeting Minutes Generator
+-   **Clock started:** 2026-11-02 03:47
 -   **Deployed URL:** https://ba-hackathon-meetingscribebot.vercel.app
 
 ## Team
@@ -18,9 +18,9 @@ Only `/ba-approve` changes this table.
 
 | Gate | Review | Decider | Status | Time | Approved by | Decisions and accepted flags |
 |---|---|---|---|---|---|---|
-| G1 | Problem framing | C | Pending |  |  |  |
-| G2 | Solution choice | A, with the team | Pending |  |  |  |
-| G3 | Design | B | Pending |  |  |  |
+| G1 | Problem framing | C | Approved | 2026-11-02 03:51 | Viet | Problem statement accepted. Assumptions A-02 to A-07 stay open. Q-01 to Q-03 go to the judges. |
+| G2 | Solution choice | A, with the team | Approved | 2026-11-02 03:54 | Viet | Option A, Evidence-linked MoM drafter, because it has the highest score. Scores are team judgement [A-08]. |
+| G3 | Design | B | Approved | 2026-11-02 03:58 | Viet | 3 core features (CF-01 to CF-03), Level 1, scope limits kept. Open: A-09 (Word format, pending Q-02), A-10, A-11. |
 | G4 | Spec freeze | B | Pending |  |  |  |
 | G5 | Tool freeze | C | Pending |  |  |  |
 | G6 | Final pack and go/no-go | A | Pending |  |  |  |
