@@ -1,0 +1,14 @@
+{
+  "name": "our-tool",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AI tool built during the AI UP hackathon",
+  "scripts": {
+    "dev": "npx vercel dev",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
