@@ -22,6 +22,7 @@ Stakeholders outside the meeting only receive the finished MoM by email from the
 | OBJ-05 | Gap flag | A marker that an action has no stated owner or no stated deadline | Which field (owner or deadline), value "Not stated", suggested question, answer entered by the BA | ACT-03; ACT-01 enters the answer | Fictional in the prototype. In real use the answer is a name or date from attendees |
 | OBJ-06 | Review decision | The record of what the BA decided for one item | Item, decision (accepted, edited or rejected), edited text, time | ACT-01 | Fictional in the prototype. In real use it is the audit trail of who decided what, so it should be kept with the MoM |
 | OBJ-07 | MoM document | The Word (.docx) file the BA downloads and sends [A-09]. It shows the accepted and edited items and records each decision | Sections of items with quotes, decisions, prompt version, model, time of export | ACT-04 | Fictional in the prototype. In real use it is a company record that the BA stores and shares |
+| OBJ-08 | Saved minutes record | A copy of the reviewed items and their decisions, stored in the database when the BA chooses "Save minutes" (FN-09). Added after G5. It is read only and is not the Word file. It does not hold the transcript | Title, items with type, text, quote, owner, deadline, decision, edited text, decision time and whether the BA entered the owner or deadline, prompt version, model, AI run time, removed count, replaced count, time saved | ACT-04, when ACT-01 chooses to save | Fictional in the prototype. In real use it holds names, commitments and transcript extracts (the quotes), including items the BA rejected, and is readable by everyone with the access code (L-12) |
 
 ### A1.3 Data model
 
@@ -35,8 +36,11 @@ erDiagram
   MOM_ITEM ||--o| REVIEW_DECISION : "gets"
   MOM_DRAFT ||--o{ MOM_DOCUMENT : "is exported as"
   MOM_DOCUMENT ||--o{ REVIEW_DECISION : "records"
+  MOM_DRAFT ||--o{ SAVED_MINUTES : "may be saved as"
 ```
 
-Entity names map to the objects: TRANSCRIPT is OBJ-01, MOM_DRAFT is OBJ-02, MOM_ITEM is OBJ-03, EVIDENCE_QUOTE is OBJ-04, GAP_FLAG is OBJ-05, REVIEW_DECISION is OBJ-06 and MOM_DOCUMENT is OBJ-07.
+Entity names map to the objects: TRANSCRIPT is OBJ-01, MOM_DRAFT is OBJ-02, MOM_ITEM is OBJ-03, EVIDENCE_QUOTE is OBJ-04, GAP_FLAG is OBJ-05, REVIEW_DECISION is OBJ-06, MOM_DOCUMENT is OBJ-07 and SAVED_MINUTES is OBJ-08.
 
-This is a conceptual model for Level 1, with no database. While the tool runs, OBJ-01 to OBJ-06 live only in the BA's browser page and are lost when the page is closed or reloaded [A-11]. The transcript text passes through a Vercel function to the AI provider for each run and is not stored there by the tool. OBJ-07 is a file on the BA's own computer, outside the tool. Saving history in tables is a Level 2 option and is not planned here.
+This is a conceptual model for Level 1 plus storage (a database, no sign-in). While the tool runs, OBJ-01 to OBJ-06 live in the BA's browser page and are lost when the page is closed or reloaded [A-11], unless the BA chooses "Save minutes". The transcript text passes through a Vercel function to the AI provider for each run and is not stored there by the tool, and it is never part of a saved record. OBJ-07 is a file on the BA's own computer, outside the tool. OBJ-08 is the one stored object: it copies the items, quotes and decisions of OBJ-03 to OBJ-06 and the run values of OBJ-02, and it has no link back to the transcript or to a user. Per-user records and per-user sign-in are a Level 2 option and are not built.
+
+Changed after G5: OBJ-08 and the SAVED_MINUTES entity were added for FN-09. The Level 1 "no database" statement was reworded because saved minutes are now stored.

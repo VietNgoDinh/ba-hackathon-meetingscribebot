@@ -86,3 +86,11 @@ This sample is for the quote check only. The main demo story stays on the Addres
 If the AI or network fails, the presenter chooses "Use Demo mode", which shows the expected result from the sample with no AI call. The screen labels it "Demo mode: sample data, no AI", and the presenter tells the judges. The story, the moment of proof and the human control moment are the same, because Demo mode runs the same review, edit, reject and download steps (FN-05). If the Word download fails, the presenter shows the summary bar and the items on screen, and says that the file records the same decisions. Keep one Word file from a rehearsal run on the presenter's computer as a last resort, and call it a rehearsal file.
 
 Changed after G4: added what the live run showed. The Word audit trail in the demo shows prompt version, model, times, mode and each decision, but not the removed and replaced counts (L-10), so the presenter shows those counts on screen and does not point to them in the file. Offline use, the network-log checks and a failure with the AI off were not confirmed on the live site, so the presenter does not claim them (L-11). The tests listed under "Check before the event" are recorded as passing in `as-built.md`, which we have not re-run.
+
+### 7.6 Optional step: save and reopen the minutes (FN-09, SCR-02)
+
+After the Word download in a live run, the presenter can choose "Save minutes", then open "Saved minutes" from the header, type the access code and open the record. It shows the reviewed items and their decisions read only, with the audit line. It stays optional, because saving needs the live path, the storage settings and the `meetings` table, and opening a saved record has not been confirmed by a person (L-15).
+
+Saving works in live mode only. In Demo mode the Save button is disabled and the presenter says so if asked. If the live path fails, the presenter switches to Demo mode and skips this step. The presenter says that only reviewed minutes are saved, the raw transcript is not, and everyone with the access code shares one workspace (L-12 to L-15).
+
+Changed after G6: added by Viet's decision of 2026-11-03.

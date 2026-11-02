@@ -11,6 +11,8 @@ BA teams need accurate MoMs, but today each transcript is read and written up by
 
 ### 1.3 What we're proposing
 
-The team built and deployed a Level 1 web tool with three core features: a MoM draft, evidence quotes with gap flags, and review with Word download. It matches the frozen spec, uses `claude-haiku-5-5` with prompt v1, and has been tried only on a few short fictional transcripts. Wider use would need approval of the AI provider and hosting for real data, testing on real transcripts, and a decision on whether to add history.
+The team built and deployed a web tool with three core features: a MoM draft, evidence quotes with gap flags, and review with Word download. At the G5 freeze it was Level 1 (no sign-in, no database) and matched the frozen spec. It uses `claude-haiku-5-5` with prompt v1, and has been tried only on a few short fictional transcripts. After G5, Viet decided to add one Should function: in live mode the BA can save the reviewed minutes and open them again on a read-only page (FN-09). That makes the tool Level 1 plus storage (a database, no sign-in), with everyone who has the access code sharing one workspace. The transcript is not saved. The saving feature works on its branch preview and is not on production until the branch is merged. Wider use would need approval of the AI provider and hosting for real data, testing on real transcripts, and decisions on per-user sign-in, retention and delete for saved minutes.
 
 Changed after G4: "is building" became "built and deployed", with the model, prompt version and the size of testing so far. The proposal itself is unchanged.
+
+Changed after G5: added FN-09 (saved minutes), the second screen, and the Level 1 plus storage wording. The frozen G4 spec did not include it, and no review has approved it.

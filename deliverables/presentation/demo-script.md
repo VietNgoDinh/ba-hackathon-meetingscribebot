@@ -9,6 +9,8 @@
 
 Counts below (8 items, 2 gaps, 4 items, 1 removed) come from the hand-prepared saved samples [A-15] and from section 7.4. Slide S06 and this script say the same three things to watch for.
 
+Updated 2026-11-03 for the tool change decided by Viet (role A): saving reviewed minutes (FN-09) and a second screen, Saved minutes (SCR-02, `/saved.html`). Saving is an optional step in the live path only (Part 3, steps 15 to 17). Saving works in LIVE mode only. In Demo mode the "Save minutes" button is disabled, and the presenter says so if asked. Parts 1 and 2 are unchanged. The slides and the proposal were updated on the same day to describe saved minutes.
+
 ## Before we start
 
 - [ ] Deployed URL is open, and `/api/health` reports `ok`
@@ -28,6 +30,15 @@ Not yet confirmed (L-11). To be checked at rehearsal. Do not claim any of these 
 - [ ] To be checked at rehearsal: browser network log shows no call to `/api/analyze` in Demo mode, and no key or access code in any request or page
 - [ ] To be checked at rehearsal: layout in a narrow window and in a second browser
 - [ ] To be checked at rehearsal: what the screen shows when the AI is switched off (the plain messages are tested in code only)
+
+Saving (FN-09, live mode only). To be checked at rehearsal, not done. Only saving was confirmed by a person, on the branch's Vercel preview. Opening a saved record, the Saved minutes list page and production have not been confirmed (L-15). Do not claim any of these on stage until they are ticked with a real run. Skip steps 15 to 17 if any of them fails:
+
+- [ ] To be checked at rehearsal: the saving feature is on the URL used at the event (it is on the branch preview until the merge, and `deliverables/as-built.md` has not recorded production after the merge)
+- [ ] To be checked at rehearsal: the two storage settings (database address and database secret key) are present in Vercel Production, and `/api/health` reports `storageConfigured` as true
+- [ ] To be checked at rehearsal: the `meetings` table exists in the database
+- [ ] To be checked at rehearsal: a test save and a reopen (list, then Open on the record) done on the deployed site before the event, with fictional data only
+- [ ] To be checked at rehearsal: records saved during rehearsal are cleared, or left on purpose. There is no delete button, so clearing needs the Supabase Table Editor. Use fictional data only, so nothing real is ever left in the list
+- [ ] To be checked at rehearsal: the Save button is disabled in Demo mode on this laptop
 
 ## Steps
 
@@ -63,6 +74,20 @@ Do not point to removed or replaced counts in the Word file. The audit trail doe
 | 12 | SCR-01 Loading | Choose "Draft MoM" | "A live run may word items a little differently from the saved sample. We will see the same kind of gaps." | "Reading the transcript and drafting the MoM." then a draft | Go to the fallback below |
 | 13 | SCR-01 Draft ready | Compare with the saved sample. Point to the quotes and the gap flags | "In one live check, a deadline read 'ideally before the design review' where the saved sample says 'before the design review'. That wording is in the transcript, so the name and date check allows it. I am not promising the saved result." | AI-drafted items with quotes. Gap flags of the same kind as the saved sample, with "Rule" badges. Removed or replaced notices only if the checks found something | If a gap is worded differently, say so plainly and carry on. Do not claim the saved result |
 | 14 | SCR-01 | Make one decision (Reject or Edit an item). Choose "Download Word MoM" | "Same controls as before. The Word file records the decisions." | Word file with the audit trail: prompt version v1, model claude-haiku-5-5, time of the AI run, time of export, mode "live", and each decision. No removed or replaced counts | If the download fails, show the screen and use the rehearsal file |
+| 15 (optional, live mode only) | SCR-01 | Check the title field still reads "Address change requirements review". Choose "Save minutes" under the download button | "Saving is a choice Elena makes. Nothing is saved on its own. This saves her reviewed minutes, with every decision, and not the transcript." | Status line "Saving the minutes." then "Saved at <time>. Open Saved minutes to see it. Saving again keeps a new copy." The draft stays on screen | If a notice shows "The minutes could not be saved" with a short reason, say so plainly, do not retry more than once, and skip steps 16 and 17. The decisions are still on screen and in the Word file. If the button is disabled, you are in Demo mode: say that saving is live mode only, then skip steps 15 to 17 |
+| 16 (optional, live mode only) | SCR-01 to SCR-02 | Choose "Saved minutes" in the header. The driver types the access code into the access code field on this page (it is a separate field, so it is typed again), out of sight of the projector where possible. Choose "Show saved minutes" | "This page leaves the drafting screen, so anything not saved or downloaded would be lost. Elena's minutes are in the list because she chose to save them." | Saved minutes page. After the code and "Show saved minutes": the saved records, newest first, each with its title, the saved date and time, and counts of accepted, edited, rejected and not reviewed items, and an "Open" button. Rehearsal copies may also be in the list: take the newest | If the list does not load or shows a notice (a wrong code message, "Storage settings are missing", or a failed request), read what the screen says, then use "Back to drafting" and carry on. Do not claim the list page works until it has been tried at rehearsal |
+| 17 (optional, live mode only) | SCR-02 | Choose "Open" on the newest record. Point to the decision badges, then the audit line under the title | "This is read only. There is no edit and no delete. Each item shows the decision Elena made, including the rejected one. The line under the title shows the prompt version, the model and when it was drafted. To change minutes, she drafts and reviews again." | Record open on the right, read only. Items in three groups with badges Accepted, Edited or Rejected, the text, and the quote. Rejected item shown with its badge. Action items show the owner and deadline, with "(entered by BA)" where Elena typed the value. Audit line "Saved <time>. Prompt version v1, model claude-haiku-5-5, drafted <time>." An "At drafting" line only if the quote check removed or replaced something. No Accept, Edit or Reject buttons | If the record does not open, say so plainly and use "Back to drafting". Do not say the saved page is verified. Opening a record has not been confirmed by a person yet. If a judge wants proof, show the Word file |
+
+### What to say about saving, plainly
+
+Use these lines if saving comes up, and say them even if nobody asks when you run steps 15 to 17:
+
+- "Only the reviewed minutes are saved: the items and the decision on each one. The raw transcript is never saved. Each item's short quote is saved with it."
+- "Everyone with the access code shares one workspace. There is no per-user sign-in, so anyone with the code can see every saved record."
+- "The saved page is read only. There is no edit and no delete. Saving again keeps a new copy."
+- "Saving works in live mode only. In Demo mode the Save button is disabled, so the sample data is never written anywhere." Say this if a judge asks why the button is greyed out in Demo mode.
+- Do not say "the tool stores nothing". That was true before this change and is no longer true of saved minutes.
+- Do not say that saved minutes are checked or verified by the server. The server checks the shape and size of what it receives. The quote check happened on the draft, in the browser, before the BA decided.
 
 ## Fallback
 
@@ -70,7 +95,7 @@ Switch to Demo mode as soon as the live path fails (wrong code message, a plain 
 
 "The live AI is not available right now. This is Demo mode: sample data, no AI. It shows the same review, edit, reject and download steps on a saved sample that our team prepared by hand."
 
-Continue from Part 1, step 2. If the Word download fails, stay on screen and say the file records the same decisions, then open the rehearsal file and call it a rehearsal file. Do not claim offline use, a clean network log, a narrow-window layout, or behaviour with the AI switched off until the rehearsal checks above are ticked.
+Continue from Part 1, step 2. Skip the saving steps (15 to 17): saving works in live mode only, and in Demo mode the "Save minutes" button is disabled. If a judge asks, say: "Saving needs the live path, so in Demo mode it is switched off. It also keeps the sample data out of the database." If only saving fails and the draft path worked, stay in live mode, say the save failed, and continue without steps 16 and 17. If the Word download fails, stay on screen and say the file records the same decisions, then open the rehearsal file and call it a rehearsal file. Do not claim offline use, a clean network log, a narrow-window layout, or behaviour with the AI switched off until the rehearsal checks above are ticked.
 
 ## Rehearsal log
 

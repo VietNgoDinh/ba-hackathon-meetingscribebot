@@ -2,7 +2,7 @@
 
 ### 8.1 Impact on users
 
-The BA spends less time reading a transcript line by line and writing the MoM from a blank page (P-02, P-04). Instead the BA reviews a draft in which every item points back to the transcript, so missed decisions, actions and discussion points are easier to spot (P-01). Missing owners and deadlines are listed up front rather than found late (P-03). Attendees and stakeholders receive a MoM with a consistent layout, and corrections are made in the tool instead of by rewriting (P-05). The BA stays accountable for what is sent (A-04).
+The BA spends less time reading a transcript line by line and writing the MoM from a blank page (P-02, P-04). Instead the BA reviews a draft in which every item points back to the transcript, so missed decisions, actions and discussion points are easier to spot (P-01). Missing owners and deadlines are listed up front rather than found late (P-03). Attendees and stakeholders receive a MoM with a consistent layout, and corrections are made in the tool instead of by rewriting (P-05). The BA stays accountable for what is sent (A-04). In live mode the BA can also save the reviewed minutes and read them again later, with every decision and the prompt version, model and time (FN-09). The saved page is read only, so it keeps a record but does not make corrections cheaper: to change minutes, the BA drafts and reviews again. We have no measurement of whether a saved record helps a BA.
 
 ### 8.2 Impact on the business
 
@@ -27,3 +27,5 @@ During rehearsal, one person does the same task on the same fictional sample by 
 A pilot should also collect how often the BA rejects or edits an item, how many items the draft missed, and how long attendee review takes. These show whether review costs less than writing from scratch.
 
 Changed after G4: added the statement that no measurement was taken during the build. No value in 8.3 changed.
+
+Changed after G5: added one sentence on saved minutes in 8.1. No measurement was taken for it, and no value in 8.3 changed.
