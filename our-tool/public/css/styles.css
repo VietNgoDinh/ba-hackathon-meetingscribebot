@@ -167,6 +167,10 @@ a {
   font-weight: 600;
 }
 
+a.btn {
+  text-decoration: none;
+}
+
 .btn:hover {
   background: var(--color-page);
 }

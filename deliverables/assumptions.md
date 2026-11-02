@@ -27,6 +27,7 @@ Every number in the proposal, slides and notes must cite an entry here as `[A-xx
 | A-19 | No running cost has been estimated. AI provider pricing, hosting terms and support effort were not researched for this proposal, so section 11.3 gives no figures. Cost per run, hosting and support are to be estimated during the pilot | 11.3, 13.4, 15 | Team | Open |
 | A-20 | The company has approval routes for an AI provider, for hosting, and for classifying meeting transcripts, and BA management can name an owner for the tool. We have not confirmed any of these, so the dependencies in section 11.2 are our reading of what a rollout would need | 11.2, 15 | Team | Open |
 | A-21 | The likelihood and impact ratings in section 10.2 are team judgement, not measurements. They were not tested on real transcripts or with real BAs | 10.2 | Team | Open |
+| A-22 | Saving reviewed minutes (FN-09, added after G5) uses working limits chosen by the team, not measured: at most 100 items per saved record, a title of up to 200 characters, and up to 5,000 characters per item field. Saved records are shared by everyone who has the access code (no per-user sign-in), and only the server can read or write the table. The raw transcript is not saved | as-built.md, FN-09 | Team | Open |
 
 ## Sources and measurements
 

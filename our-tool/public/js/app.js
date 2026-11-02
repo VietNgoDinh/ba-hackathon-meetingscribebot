@@ -1,5 +1,5 @@
 // Screen controller for SCR-01: takes input, runs live or Demo mode, and handles the BA's decisions.
-import { analyze } from "./api-client.js";
+import { analyze, saveMeeting } from "./api-client.js";
 import { downloadMom, EXPORT_ERROR } from "./export-docx.js";
 import {
   checkItems,
@@ -31,6 +31,8 @@ const nodes = {
   unreviewed: $("unreviewed-notice"),
   download: $("download"),
   audit: $("audit-line"),
+  save: $("save"),
+  saveStatus: $("save-status"),
 };
 
 // All state lives in this page only [A-11]. Reloading loses it.
@@ -66,6 +68,9 @@ function updateDownload() {
     n === 1
       ? "1 item is not reviewed. It will be marked Not reviewed in the file."
       : `${n} items are not reviewed. They will be marked Not reviewed in the file.`;
+  // Saving needs the server, so it is live mode only. Demo mode stays server-free (FN-05).
+  nodes.save.disabled = state.items.length === 0 || state.meta.isSample;
+  nodes.save.title = state.meta.isSample ? "Saving is not available in Demo mode." : "";
   nodes.audit.textContent = state.meta.isSample
     ? "Sample data, no AI"
     : `Prompt version ${state.meta.promptVersion}, model ${state.meta.model}, drafted ${state.meta.generatedAt}`;
@@ -77,6 +82,7 @@ function showDraft(result) {
   state.replacedCount = result.replacedCount;
   state.meta = { promptVersion: result.promptVersion, model: result.model, generatedAt: result.generatedAt, isSample: Boolean(result.isSample) };
   state.hasDraft = true;
+  nodes.saveStatus.textContent = "";
   renderDraft(nodes.results, state);
   nodes.reset.hidden = false;
   updateDownload();
@@ -227,6 +233,27 @@ async function onDownload() {
   }
 }
 
+// ---- Save (FN-09) ----
+
+async function onSave() {
+  clearError();
+  nodes.save.disabled = true;
+  nodes.saveStatus.textContent = "Saving the minutes.";
+  try {
+    const items = state.items.map(({ editing, ...item }) => item);
+    await saveMeeting({
+      accessCode: nodes.code.value,
+      minutes: { title: nodes.title.value, items, meta: state.meta, droppedCount: state.droppedCount, replacedCount: state.replacedCount },
+    });
+    nodes.saveStatus.textContent = `Saved at ${new Date().toLocaleTimeString()}. Open Saved minutes to see it. Saving again keeps a new copy.`;
+  } catch (error) {
+    nodes.saveStatus.textContent = "";
+    showError(error.message, { offerDemo: false });
+  } finally {
+    nodes.save.disabled = false;
+  }
+}
+
 // ---- Wiring ----
 
 nodes.transcript.addEventListener("input", updateCount);
@@ -235,6 +262,7 @@ nodes.demoToggle.addEventListener("click", () => (state.demo ? exitDemo() : ente
 nodes.errorDemo.addEventListener("click", enterDemo);
 nodes.results.addEventListener("click", onResultsClick);
 nodes.download.addEventListener("click", onDownload);
+nodes.save.addEventListener("click", onSave);
 nodes.reset.addEventListener("click", () => {
   nodes.resetConfirm.hidden = false;
 });

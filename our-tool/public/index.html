@@ -14,7 +14,10 @@
         <p class="app-name">MoM Drafter</p>
         <p class="app-tagline">Draft meeting minutes from a transcript. You check and decide every item.</p>
       </div>
-      <span id="mode-label" class="mode-label" hidden>Demo mode: sample data, no AI</span>
+      <nav class="decision">
+        <span id="mode-label" class="mode-label" hidden>Demo mode: sample data, no AI</span>
+        <a class="btn" href="/saved.html">Saved minutes</a>
+      </nav>
     </header>
 
     <main class="page">
@@ -65,7 +68,11 @@
           </div>
           <div id="download-area" hidden>
             <div id="unreviewed-notice" class="notice" hidden></div>
-            <button id="download" class="btn btn-primary" type="button">Download Word MoM</button>
+            <div class="decision">
+              <button id="download" class="btn btn-primary" type="button">Download Word MoM</button>
+              <button id="save" class="btn" type="button">Save minutes</button>
+            </div>
+            <p id="save-status" class="item-meta" role="status"></p>
             <p id="audit-line" class="item-meta"></p>
           </div>
         </section>

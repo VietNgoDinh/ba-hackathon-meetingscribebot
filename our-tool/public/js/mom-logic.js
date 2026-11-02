@@ -15,6 +15,12 @@ export const MESSAGES = {
     "The draft could not be created, and nothing was changed. Try again, or use Demo mode to see a sample.",
   wrongFormat:
     "The AI returned a result in the wrong format, so it was not shown. Try again, or use Demo mode to see a sample.",
+  saveFailed:
+    "The minutes could not be saved. Your decisions are still on screen. Download the Word file, or try again.",
+  saveInvalid:
+    "The minutes could not be saved because the data was not in the expected format. Your decisions are still on screen.",
+  loadFailed: "The saved minutes could not be loaded. Try again.",
+  notFound: "That saved record was not found.",
 };
 
 // Returns an error message, or null when the transcript is acceptable.

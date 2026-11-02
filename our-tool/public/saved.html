@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saved minutes | MoM Drafter</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/saved.js"></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="app-name">MoM Drafter</p>
+        <p class="app-tagline">Saved minutes. Read only: to change minutes, draft and review them again.</p>
+      </div>
+      <a class="btn" href="/">Back to drafting</a>
+    </header>
+
+    <main class="page">
+      <div id="error" class="notice notice-error" role="alert" hidden>
+        <p id="error-text"></p>
+      </div>
+
+      <div class="page-split">
+        <section class="panel" aria-labelledby="list-title">
+          <h1 id="list-title">Saved minutes</h1>
+          <div class="field">
+            <label for="access-code">Access code</label>
+            <input id="access-code" type="password" autocomplete="off">
+          </div>
+          <div class="decision">
+            <button id="load" class="btn btn-primary" type="button">Show saved minutes</button>
+          </div>
+          <div id="list" aria-live="polite">
+            <div class="empty">Enter the access code and choose Show saved minutes.</div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="detail-title">
+          <h1 id="detail-title">Minutes</h1>
+          <div id="detail" aria-live="polite">
+            <div class="empty">Choose a saved record on the left to read it.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

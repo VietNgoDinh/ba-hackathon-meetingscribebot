@@ -45,6 +45,7 @@ All 12 are rated on code and tests. Section 15 of the proposal rates the wider p
 | What changed | Why | Decided by |
 |---|---|---|
 | None | The tool follows the frozen spec. The planted-quote flag on the stress sample was accepted at G4 [A-17] | n/a |
+| In progress, on branch `feature/save-minutes`, not deployed: save the reviewed minutes to a database (Supabase, Level 2) and list them again. Adds a Should function and a second screen, within the 3-screen limit. Still 3 core features | The team wants stored minutes in the event demo | Viet, 2026-11-03 |
 
 ## Known issues
 
