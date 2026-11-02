@@ -23,6 +23,9 @@ The team has no developers, so choose the simplest thing that works and explain 
 | `public/js/app.js` | Screen controller: takes input, requests analysis, shows results | 1 |
 | `public/js/api-client.js` | The only browser file that calls `/api` | 1 |
 | `public/js/render.js` | Displays results, Accept / Edit / Reject and export | 1 |
+| `public/js/mom-logic.js` | Shared rules (input limit, quote check, name and date check, counts). Plain JavaScript, used by the server and by the browser in Demo mode | 1 |
+| `public/js/export-docx.js` | Builds the Word file in the browser | 1 |
+| `public/vendor/docx.min.js` | Word-building library, saved in the project. Never load it from a CDN | 1 |
 | `public/js/supabase-client.js`, `public/js/auth.js` | Sign-in and the user's own history | 2 |
 | `api/analyze.js` | `POST /api/analyze`, holds the server-side AI call | 1 |
 | `api/health.js` | Deployment check. Keep it | 1 |
