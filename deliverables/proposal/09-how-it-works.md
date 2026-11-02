@@ -9,7 +9,7 @@
 | Analysis or drafting | AI | AI reads the transcript and drafts discussion points, decisions and actions, each with a short quote. It writes "Not stated" for any missing owner or deadline and suggests a question for the BA to ask |
 | Validation | Rules | Every AI result must match the agreed format and quote its source text. Anything else is removed. Any owner or deadline that does not appear in the transcript is replaced with "Not stated" |
 | Decision | Person | The BA accepts, edits or rejects each result |
-| Export | Tool | The output records what was decided, with the prompt version, model and time |
+| Export | Tool | The output records what was decided, with the prompt version, model and time. It does not record how many items the checks removed or replaced (L-10) |
 
 ### 9.2 Architecture and tech stack
 
@@ -37,7 +37,7 @@ Purple is AI and amber is the human decision.
 |---|---|---|
 | Hosting, screens and backend | Vercel | One place to run everything, with no servers to manage. The secure function keeps the AI key out of the browser |
 | Source code | GitHub | Full history of every change, and automatic deployment |
-| AI model | Claude, through Anthropic's official SDK, with the model name set in server settings | Reads long text well and returns the structured format the validator needs. The model can be changed without editing code |
+| AI model | Claude, with the model name set in server settings. The deployed model is `claude-haiku-5-5`, prompt v1 | Returns the structured format the validator needs. The model can be changed without editing code. Only Haiku was tried, on a few short fictional transcripts, so quality on other models or longer transcripts is unknown |
 | Database and storage | None at Level 1 | Storing nothing reduces data risk. Supabase is the next step if history is needed |
 
 ### 9.3 Data safety
@@ -57,3 +57,5 @@ Purple is AI and amber is the human decision.
 | Accept, edit or reject each item (step 5) | Business Analyst | Items not accepted are left out of the downloaded MoM, or are marked as not reviewed |
 | Decide whether corrections are needed (step 8) | Business Analyst, from attendee feedback | The draft goes to step 9 unchanged |
 | Send the final MoM (step 9) | Business Analyst | The tool sends nothing; the MoM stays with the BA |
+
+Changed after G4: named the deployed model and prompt version, said that only Haiku was tried on a few short transcripts, removed the claim that the model "reads long text well" (not tested), and added that the Audit trail does not show the removed and replaced counts. The Anthropic SDK wording was dropped because as-built.md does not confirm it.

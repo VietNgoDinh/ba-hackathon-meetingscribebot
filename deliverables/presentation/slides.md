@@ -23,9 +23,11 @@ For Business Analysts, MoM Drafter turns a raw meeting transcript into a structu
 
 Why it matters: the gain in time and accuracy is still to be measured.
 
-**Visual:** Tool name large, with the promise beneath it
+Status: built and deployed at Level 1 (no sign-in, no database), with the AI model claude-haiku-5-5 and prompt v1. Tried only on a few short fictional transcripts.
 
-**Source:** 1.1, 1.2
+**Visual:** Tool name large, with the promise beneath it and a small status tag
+
+**Source:** 1.1, 1.2, 1.3
 
 **Link:** "Here's the problem behind it."
 
@@ -115,11 +117,11 @@ Three core features:
 
 Why this option: it scored highest of three options on value for BA work, live demo and ease of defence (scores are team judgement, not measurements), and it is the only one that produces the complete MoM the judges asked for.
 
-Status: this is the approved design. The tool review (G5) is still to come.
+Status: built and deployed to the frozen spec, with no changes (Level 1, claude-haiku-5-5, prompt v1). The five Must functions are built. Three optional functions (FN-06 to FN-08) were cut to protect the build window.
 
 **Visual:** Three feature blocks side by side, with the one-line "why this option" beneath and a small status tag.
 
-**Source:** 5.1, 5.3, 5.5, 14.1
+**Source:** 5.1, 5.3, 5.5, 1.3, 14.1
 
 **Link:** "Here's how the work changes."
 
@@ -195,7 +197,7 @@ Watch for:
 
 **Source:** 7.1, 7.2
 
-**Note:** The presenter says whether the demo is live or Demo mode ("sample data, no AI"). The saved samples were prepared by hand, not captured from a live AI run [A-15, A-17]. The demo flow itself depends on the tool passing G5.
+**Note:** The presenter says whether the demo is live or Demo mode ("sample data, no AI"). Demo mode shows the saved sample as written, and the saved samples were prepared by hand, not captured from a live AI run [A-15, A-17]. A live run may word items differently: in one check the lookup-service deadline read "ideally before the design review" where the saved sample reads "before the design review", and the same two gaps were flagged. Do not promise the saved result in a live run (7.4). Do not claim offline use, network-log checks or failure with the AI off: they were not confirmed on the live site (L-11, 7.5). The Word file does not show the removed and replaced counts (L-10), so point to the counts on screen.
 
 **Link:** "What did that change for a BA?"
 
@@ -208,7 +210,7 @@ Watch for:
 **Content:**
 What changes for a BA: less time reading line by line and writing from a blank page. Instead, the BA reviews a draft where every item points back to the transcript, missing owners and deadlines are listed up front, and corrections are made in the tool instead of by rewriting. The BA stays accountable for what is sent.
 
-We make no claim yet about hours saved or errors avoided.
+We make no claim yet about hours saved or errors avoided. No measurement exists: no by-hand or with-tool timing was recorded, and the register of sources is empty. Pending: timing still to be measured.
 
 | Measure | Today | With the tool |
 |---|---|---|
@@ -224,7 +226,7 @@ How we will measure: during rehearsal, one person does the same task on the same
 
 **Source:** 8.1, 8.3, 8.4, 7.1
 
-**Note:** Provisional. Replace "To be measured" only with rehearsal results registered as SRC-xx in `assumptions.md`. Until then, do not add figures.
+**Note:** Pending: waiting for a rehearsal timing (one person, one fictional sample, by hand and with the tool). Replace "To be measured" only with results registered as SRC-xx in `assumptions.md`. Until then, do not add figures. A small live check on the main sample gave a draft with no items dropped and no values replaced; say it is an observation, not a measurement of accuracy (8.3).
 
 **Link:** "Why should you trust the output?"
 
@@ -238,11 +240,12 @@ How we will measure: during rehearsal, one person does the same task on the same
 - **Rules before AI:** empty or oversized text and a wrong access code are rejected, and no AI is involved.
 - **AI drafts:** it reads the transcript and drafts items with quotes. It is told not to guess owners or deadlines.
 - **Validation removes:** any result in the wrong format, any item whose quote is not in the transcript, and any owner or deadline not found in the transcript, which becomes "Not stated". The counts are shown on screen.
-- **People decide:** the BA accepts, edits or rejects each item, and decides what is sent. The tool sends nothing.
+- **People decide:** the BA accepts, edits or rejects each item, and decides what is sent. The tool sends nothing. The Word file records each decision with the prompt version, model and time.
 - **Data safety:** fictional data only. The tool stores nothing, the AI key stays on the server, and an access code is required. Real data waits for approval of the AI provider, hosting and data classification.
 - **What the checks do not prove:** a quote proves the text exists, not that the item means it, and a missed item cannot be seen. The BA review stays the main control.
+- **What is not in the Word file:** how many items the checks removed or replaced. Those counts appear on screen only (L-10).
 
-Status: this is the approved design. The tool review (G5) is still to come.
+Status: built (Level 1, claude-haiku-5-5, prompt v1). Only Haiku was tried, on a few short fictional transcripts. Not confirmed on the live site: offline use, network-log checks and failure with the AI switched off (L-11).
 
 **Visual:**
 
@@ -266,7 +269,7 @@ flowchart LR
 
 Purple is AI and amber is the human decision.
 
-**Source:** 9.1, 9.2, 9.3, 9.4, 10.3, 14.1
+**Source:** 9.1, 9.2, 9.3, 9.4, 10.1, 10.3
 
 **Link:** "Where does it still fall short?"
 
@@ -283,9 +286,11 @@ Three rows, limit or risk and mitigation:
 2. **Real confidential content could be pasted into an outside AI service (R-02).** Mitigation: the tool is for fictional data only for now. Real use waits for approval of the provider, hosting and data classification.
 3. **The 20,000-character limit is unmeasured (L-01, assumption [A-12]).** We do not claim the tool handles a full-length meeting. Mitigation: long meetings need shortening or several runs today, and the pilot measures realistic lengths before the limit is trusted.
 
-**Visual:** Three rows: limit or risk on the left, mitigation on the right.
+Also stated openly, in smaller type: the Word audit trail does not show how many items the checks removed or replaced (L-10), and several behaviours were not confirmed on the live site: offline use, network-log checks, failure with the AI off, other browsers and a narrow-window layout (L-11).
 
-**Source:** 10.3
+**Visual:** Three rows: limit or risk on the left, mitigation on the right, with the "also stated openly" line beneath.
+
+**Source:** 10.3, 10.1
 
 **Link:** "What would a wider rollout need?"
 
@@ -319,7 +324,9 @@ What rollout depends on: approved hosting, an approved AI provider with data ter
 **Content:**
 Lesson: our first spec said the tool "never guesses" an owner or a deadline. The independent review showed that only the AI prompt prevented it. We added a rule check, then rewrote our claims to say only what the check proves. State what a control proves and what it does not, and put the weak points in the document yourself.
 
-Request: sponsor a small, time-boxed pilot of MoM Drafter. A BA manager would be the sponsor and choose a small group of BAs. IT and Security review the AI provider, hosting and data class in parallel. The pilot measures time to a ready MoM, items edited, rejected and missed, and the transcript length the tool can take, so the next decision rests on measurements and not on our claims. We are not asking for approval to use real client data.
+Request: sponsor a small, time-boxed pilot of MoM Drafter. A BA manager would be the sponsor and choose a small group of BAs. IT and Security review the AI provider, hosting and data class in parallel. The pilot measures time to a ready MoM, items edited, rejected and missed, and the transcript length the tool can take, so the next decision rests on measurements and not on our claims. We are not asking for approval to use real client data. The prototype is deployed at Level 1 and has been tried only on a few short fictional transcripts with one model, so a pilot is the next step to test it, not a claim that it is ready.
+
+The build repeated the lesson: the live AI result differed from our hand-prepared sample, and the Word audit trail does not show the removed and replaced counts. We list both as limits, not features.
 
 **Visual:** The request, large.
 
@@ -336,8 +343,11 @@ Request: sponsor a small, time-boxed pilot of MoM Drafter. A BA manager would be
 - **How do you stop it from making things up?** Three steps: the prompt says use only the transcript, the quote check removes items with no matching quote, and the name and date check replaces any owner or deadline not in the transcript with "Not stated". These do not prove the AI picked the right person, so we do not say it cannot make things up.
 - **Who is accountable for the final output?** The Business Analyst. The tool sends nothing, and nothing is final until the BA decides on each item.
 - **Could someone paste real client data into it?** Yes, the tool cannot tell. It shows a "fictional data only" notice and asks for an access code, but neither stops pasting. The pilot starts only with fictional or approved data.
-- **How do we know this isn't vibe coding?** The proposal came first and the tool is built against a frozen spec. Four human reviews are approved, with named approvers and times, and the independent spec review found ten issues that were fixed before the freeze. The tool review (G5) is still to come.
-- **Where did your team overrule the AI?** At the spec freeze the reviewer suggested measuring the transcript limit or raising it. The team accepted it as an open flag and chose to record a long-meeting limitation instead. Changes made while building are added after G5.
+- **How do we know this isn't vibe coding?** The proposal came first and the tool was built against a frozen spec. Five human reviews (G1 to G5) are approved, with named approvers and times, and the independent spec review found ten issues that were fixed before the freeze. The tool matched the frozen spec with no changes, and three optional functions were cut. The final pack review (G6) is still pending.
+- **Where did your team overrule the AI?** At the spec freeze the reviewer suggested measuring the transcript limit or raising it. The team accepted it as an open flag and chose to record a long-meeting limitation instead. While building, the team made no spec changes and cut three optional functions (FN-06 to FN-08) to protect the build window.
+- **Is the demo a real AI run?** It can run live or from the saved sample, and the presenter says which. The saved samples were prepared by hand, and live wording differs: in one live run a deadline read "ideally before the design review" where the saved sample reads "before the design review". Even the saved sample is re-checked at run time.
+- **Does the Word file show how many items the checks removed?** No. Those counts appear on screen only. The spec did not ask for it, and the team has not decided whether to add it.
+- **What have you actually tested?** Automated tests cover the input rules, the format check, the quote check and the name and date check. On the live site the team ran a draft and a Word export and saw a wrong access code refused. These are small checks on a few short fictional transcripts with one model, not measured accuracy. We have not confirmed offline use, network-log checks, failure with the AI off, or a narrow-window layout.
 
 **Source:** 13.3, 13.5, 13.6
 
@@ -350,7 +360,7 @@ Request: sponsor a small, time-boxed pilot of MoM Drafter. A BA manager would be
 **Content:**
 - **Vercel (hosting, screens and backend):** one place to run everything, with no servers to manage. The secure function keeps the AI key out of the browser.
 - **GitHub (source code):** full history of every change, and automatic deployment.
-- **Claude through Anthropic's official SDK:** reads long text well and returns the structured format the validator needs. The model name is set in server settings, so it can change without editing code.
+- **Claude (AI model):** returns the structured format the validator needs. The model name is set in server settings, so it can change without editing code. The deployed model is claude-haiku-5-5 with prompt v1. Only Haiku was tried, on a few short fictional transcripts, so quality on other models or longer transcripts is unknown.
 - **No database at Level 1:** storing nothing reduces data risk. Supabase is the next step if history is needed.
 
 **Visual:**
@@ -381,10 +391,12 @@ Purple is AI and amber is the human decision.
 
 ## B03 How we built it
 
-**Headline:** The proposal came first and four human reviews are approved, with two still to come
+**Headline:** The proposal came first, and five of six human reviews are approved, with the final pack still pending
 
 **Content:**
-Process: we treated this as BA work, with AI doing the drafting and people making the decisions. The proposal came first, then the tool and slides were built from the approved proposal. Specialist subagents each wrote named documents from templates, and an independent reviewer checked the spec and, later, the final pack. Six human reviews control the work. The reviewer's advice is not an approval: only a named person approves each gate.
+Process: we treated this as BA work, with AI doing the drafting and people making the decisions. The proposal came first, then the tool and slides were built from the approved proposal. Specialist subagents each wrote named documents from templates, and an independent reviewer checked the spec and the final pack. Six human reviews control the work. The reviewer's advice is not an approval: only a named person approves each gate.
+
+The tool was built in slices against the frozen spec: a demo path first, then a live path. The as-built record shows all five Must functions built, FN-06 to FN-08 cut, and no changes from the spec.
 
 Folder structure:
 - `CLAUDE.md`: rules every AI session follows
@@ -402,42 +414,40 @@ Review log:
 | G2 | Solution choice | Team (A), approved by Viet | Approved | 2026-11-02 03:54 |
 | G3 | Design | Phong (B) | Approved | 2026-11-02 03:59 |
 | G4 | Spec freeze | Phong (B), approved by Viet | Approved | 2026-11-02 04:13 |
-| G5 | Tool freeze | Ngan (C) | Pending | Not yet reviewed |
+| G5 | Tool freeze | Ngan (C), approved by Viet | Approved | 2026-11-02 07:55 |
 | G6 | Final pack and go/no-go | Viet (A) | Pending | Not yet reviewed |
 
-For G1, G2 and G4 the person who approved is not the decider named in the gate table. We record this as it stands.
+For G1, G2, G4 and G5 the person who approved (Viet) is not the decider named in the gate table. We record this as it stands and do not call it an independent review by the decider. The "12 of 12 Yes" control baseline at G5 is the tool lead's own record, and several Yes entries rest on tests and a headless-browser run, not on a person watching the live site.
+
+Where people changed the AI's work: people cut three optional functions to protect the build window, and left the Word audit trail without the removed and replaced counts, recorded as a limitation. We do not claim which person made which edit.
 
 **Source:** 14.1, 14.2, 14.3, 14.4
-
-**Note:** Provisional. Update the review log and the "where people changed the AI's work" content after G5 and at `/ba-closeout final`.
 
 ---
 
 ## B04 AI checklist
 
-**Headline:** Every responsible-AI area is Planned in the approved design, and none is yet proven on a running tool
+**Headline:** Three responsible-AI areas are Yes, seven are Partial and two are No, and we say why for each
 
 **Content:**
-Status is Planned for every area until someone has opened the real tool or its tests (after G5). The evidence today is the approved spec, which says what we will build and is not proof that it works.
+Status is Yes, Partial or No. Yes means the control exists in the code or tests we opened. It does not mean accuracy was measured, and several rows stay Partial because a person has not confirmed the behaviour on the live site.
 
-| Area | Where we stand (by design) | Status |
+| Area | Where we stand | Status |
 |---|---|---|
-| Accountability | The BA is accountable and decides what is sent. The tool sends nothing. The audit trail does not record the BA's name | Planned |
-| Responsibility | AI drafts, rules check, the BA decides. Results carry an AI or Rule badge | Planned |
-| Human oversight | Nothing is final until the BA accepts, edits or rejects. Undecided items are marked "Not reviewed", and the download is not blocked | Planned |
-| Auditability | The Word file records prompt version, model, times and each decision, but not the BA's name. Items removed by the checks appear only as counts on screen | Planned |
-| Transparency | AI, Rule, "Entered by BA" and Demo mode labels. Demo samples were prepared by hand | Planned |
-| Accuracy | Four layers: format check, quote check, name and date check, BA review. None detects a missed item. Accuracy on real transcripts is not measured | Planned |
-| Security | AI key on the server only, an access code required. One shared code, no individual sign-in, no security review done | Planned |
-| Data privacy | Fictional text only for now. The tool stores nothing. The provider's retention and terms are unchecked | Planned |
-| Fairness | It could disadvantage a person if an owner is wrong or missing. Not tested for bias | Planned |
-| Reliability | Plain failure message, transcript kept, Demo mode offered. Live reliability is not measured | Planned |
-| Cost control | Oversize input rejected before any AI call, one AI call per run, no retry. No per-person quota and no cost estimate | Planned |
-| Compliance | Needs approval of the provider, hosting and data classification, an owner, and company policies we have not checked | Planned |
+| Accountability | The BA is accountable and decides what is sent. The tool sends nothing. The audit trail does not record the BA's name, and the tool's own owner is not named | Partial |
+| Responsibility | AI drafts, rules check, the BA decides. Results carry an AI or Rule badge, and BA-typed values show "Entered by BA" | Yes |
+| Human oversight | Nothing is final until the BA accepts, edits or rejects. Undecided items are marked "Not reviewed", and the download is not blocked | Yes |
+| Auditability | The Word file records prompt version, model, times and each decision, including rejected items, but not the BA's name and not the removed and replaced counts (those are on screen only) | Partial |
+| Transparency | AI, Rule, "Entered by BA" and Demo mode labels. Demo samples were prepared by hand | Yes |
+| Accuracy | Four layers: format check, quote check, name and date check, BA review. None detects a missed item. Accuracy is not measured, and live results differ from the saved samples | Partial |
+| Security | AI key on the server only, an access code required. One shared code, no individual sign-in, no security review done. The no-key-in-requests check was not done on the live site | Partial |
+| Data privacy | Fictional text only for now. The tool stores nothing by design. Not checked in a network log on the live site, and the provider's retention and terms are unchecked | Partial |
+| Fairness | It could disadvantage a person if an owner is wrong or missing. Not tested for bias | No |
+| Reliability | Plain failure message, transcript kept, Demo mode offered, tested in code. Failure with the AI off, offline use and a narrow-window layout were not confirmed on the live site | Partial |
+| Cost control | Oversize input rejected before any AI call, one AI call per run, no retry. No per-person quota and no cost estimate. The limit is untested on a long transcript | Partial |
+| Compliance | Needs approval of the provider, hosting and data classification, an owner, and company policies we have not checked. None requested | No |
 
 **Source:** 15
-
-**Note:** Provisional. Rows move to Yes, Partial or No only after G5, with evidence someone can open.
 
 ---
 
@@ -478,9 +488,9 @@ Every assumption below is Open. The register of measured sources has no entries 
 - **Scores and weights (A-01, A-08, A-21):** the scoring rubric is assumed, and the option scores and risk ratings are team judgement.
 - **Output (A-09, A-10, A-13):** the MoM is a Word file, pending the judges' answer. Rejected items are left out of the body and listed in the audit trail.
 - **Level 1 behaviour (A-11, A-14):** nothing is stored beyond the browser page, and the transcript is kept as pasted.
-- **Input limit (A-12):** 20,000 characters per run, a working figure not measured on real transcripts.
+- **Input limit (A-12):** 20,000 characters per run, a working figure not measured on real transcripts, and still not tested on a real long transcript after the build.
 - **Checks (A-16):** the name and date check is exact-text matching, not tested on real transcripts. It cannot prove the AI picked the right person.
-- **Samples (A-15, A-17):** both saved samples were prepared by hand, not captured from a live AI run. One has a planted quote on purpose.
+- **Samples (A-15, A-17):** both saved samples were prepared by hand, not captured from a live AI run. One has a planted quote on purpose. A live run on the main sample worded one deadline differently from the saved sample, with the same two gaps flagged.
 - **Rollout (A-18, A-19, A-20):** the three stages are our proposal, no running cost has been estimated, and the company approval routes are our reading, not confirmed.
 
 Questions for the judges with working answers: transcript form (pasted text), output format (Word), MoM template (none), who checks before sending (BA, then attendees), and language and scope (English, one meeting). No answers received yet.
@@ -510,6 +520,6 @@ Must functions (Level 1: no sign-in, no database):
 Screen:
 - **SCR-01 MoM Drafter workspace:** paste a transcript, get a draft with quotes and gap flags, decide on every item, and download the Word file. Demo mode is a state of this screen.
 
-Specified but not built until the spec is met and time remains: click a quote to highlight it (Should), copy accepted items as text (Could), and add an item the AI missed (Could).
+Cut at G5, not built: FN-06 click a quote to highlight it (Should), FN-07 copy accepted items as text (Could), and FN-08 add an item the AI missed (Could).
 
 **Source:** A1, A3, A4

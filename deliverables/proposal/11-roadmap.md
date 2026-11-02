@@ -1,13 +1,13 @@
 ## 11. Roadmap
 
-The stages below are our proposal. They show what a rollout across the BA department needs, in order, with owners and dependencies. We give no durations, headcounts or costs, because we have no basis for them [A-18, A-19]. Owners are roles, and BA management would name the people [A-20].
+The prototype (Level 1, `claude-haiku-5-5`, prompt v1) is built and deployed; everything below is still proposal, and nothing in it has been started. The stages below are our proposal. They show what a rollout across the BA department needs, in order, with owners and dependencies. We give no durations, headcounts or costs, because we have no basis for them [A-18, A-19]. Owners are roles, and BA management would name the people [A-20].
 
 ### 11.1 From prototype to department tool
 
 | Stage | Goal | What's needed | Owner | Ready when |
 |---|---|---|---|---|
 | Pilot | Find out, with a small group of BAs, whether reviewing a draft costs less than writing the MoM by hand, and whether the checks hold up on realistic material | An executive sponsor and a small pilot group chosen by the sponsor [A-18]. A fixed set of fictional but realistic transcripts, including long ones (L-01). Approval to use the AI provider and hosting for the pilot data. Measurements recorded as `SRC-xx` entries: time to a MoM ready to send, items accepted, edited, rejected and missed, and attendee review time (8.4). A written pilot rule that only approved data may be pasted (R-02) | BA manager (pilot sponsor), with Proposal lead | The sponsor has the measured results, the BAs' feedback and the list of missed items, and decides to continue, change or stop. Acceptable edit and rejection rates are set by the sponsor before the pilot starts [A-18] |
-| Hardening | Fix what the pilot shows, and close the gaps that block real use | Findings from the pilot turned into changes: the transcript limit set from measured lengths (L-01), the name and date check tuned (L-02), a decision on the Word layout or a company template (L-06, Q-03), an optional download without the Audit trail (L-04), and a decision on sign-in and history (Level 2, L-07). Individual sign-in and usage records if the sponsor wants control of spending (R-05). A security review of the tool and its settings | Tool owner (to be named), with Security | Security and the data owner have signed off the tool, and the open limitations are either fixed or accepted by name |
+| Hardening | Fix what the pilot shows, and close the gaps that block real use | Findings from the pilot turned into changes: the transcript limit set from measured lengths (L-01), the name and date check tuned (L-02), a decision on the Word layout or a company template (L-06, Q-03), an optional download without the Audit trail (L-04), a decision on whether the Audit trail should show the removed and replaced counts (L-10, not built today), a check by a tester of the live-site behaviours not yet confirmed (L-11), and a decision on sign-in and history (Level 2, L-07). Individual sign-in and usage records if the sponsor wants control of spending (R-05). A security review of the tool and its settings | Tool owner (to be named), with Security | Security and the data owner have signed off the tool, and the open limitations are either fixed or accepted by name |
 | Department rollout | Make the tool a supported BA service | A named owner and support route. BA guidance and short training on how to review a draft against its quotes. A quality-monitoring routine. Hosting and AI provider under company terms. A retirement or review point if the tool is not used or quality drops | BA department head | The department head accepts the support model and the monitoring results. Rollout does not start before the dependencies in 11.2 are met |
 
 ### 11.2 What rollout depends on
@@ -31,3 +31,5 @@ We have no cost figures [A-19]. We did not research AI provider pricing, hosting
 - the BA time for training and for review, compared with writing by hand (8.4).
 
 Each estimate becomes an `SRC-xx` entry with the date and who collected it. The cost question is not answered until then.
+
+Changed after G4: added the sentence that the prototype is built and that the roadmap is still proposal, and two Hardening items (L-10, L-11). No other change: the stages, owners and dependencies are unaffected by the build.

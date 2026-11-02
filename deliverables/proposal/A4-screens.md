@@ -107,6 +107,8 @@ Legend: amber is Demo mode and red is the error state. There is no sign-in scree
 
 **Writing on screen:** Buttons say what happens ("Draft MoM", "Download Word MoM"). No exclamation marks. The screen never says the draft is accurate; the closest wording is the tagline, "You check and decide every item."
 
-**Accessibility:** Keep the visible focus styles. Badges always carry text. Item text and quotes stay selectable so the BA can copy them. Check the screen at presentation zoom before G5.
+**Accessibility:** Keep the visible focus styles. Badges always carry text. Item text and quotes stay selectable so the BA can copy them. The look and click-through were checked by a headless-browser smoke test on a local copy and by hand on the live site for the live path only. A phone or narrow-window layout, and a browser other than the headless one, were not checked (L-11).
 
 **Traceability check:** Every Must function appears on SCR-01 (FN-01 to FN-05), and every element in the table names a function.
+
+Changed after G4: SCR-01 is built as specified, with no change. The accessibility note now says what was checked and what was not. The "Audit line" under the download button is the prompt version, model and time, as specified; the removed and replaced counts are in the summary bar on screen, not in the Word file (L-10).

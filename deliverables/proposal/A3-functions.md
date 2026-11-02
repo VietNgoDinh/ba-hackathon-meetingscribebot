@@ -20,7 +20,9 @@ Level 1: no sign-in and no database. Five Must functions. Where each function ru
 | FN-07 | Copy the accepted and edited items as plain text | ACT-01 | CF-03 | N-04 | Could | UI |
 | FN-08 | Add an item the AI missed, with a quote the BA selects from the transcript | ACT-01 | CF-02 | P-01, N-02 | Could | UI |
 
-FN-06 to FN-08 are built only if time remains after G5 is met. They are not specified further and do not appear in section A4.
+FN-06 to FN-08 were Cut at G5. They are not built, not specified further and do not appear in section A4.
+
+**As built:** FN-01 to FN-05 are built as specified, with no changes (`deliverables/as-built.md`). The acceptance criteria below are the spec. Those about the internet being switched off, the network log, the missing library file and the AI being unavailable were covered by tests or code paths, but were not confirmed on the deployed site (L-11). The Audit trail in FN-04 lists prompt version, model, run time, export time, mode and each item with its decision. It does not show the removed or replaced counts (L-10).
 
 **Where each control from the build rules is specified**
 
@@ -359,3 +361,6 @@ Example result (the AI part only, fictional content):
 - **Prompt version:** `v1`. It is stored in `prompts/main.prompt.js`, returned with every result and written to the audit trail. Any change to the prompt raises the version.
 - **One AI call per run.** There is no automatic retry. The BA retries by choosing "Draft MoM" again.
 - **Nothing is stored.** The server keeps no transcript, result or log of the text. The draft lives only in the browser page until it is closed or reloaded [A-11].
+- **Deployed settings:** The model is `claude-haiku-5-5`, set in `LLM_MODEL`. The limit was not tested on a real long transcript, and L-01 in section 10 records this.
+
+Changed after G4: FN-06 to FN-08 changed from "built if time remains" to Cut. Added the as-built note, the Audit trail counts gap (L-10) and the deployed model. No function behaviour changed.

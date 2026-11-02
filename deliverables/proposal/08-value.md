@@ -18,8 +18,12 @@ If the draft proves reliable in review, BA time could shift from transcription w
 | Items an item-by-item quote check can trace to the transcript | To be measured | Every item carries a quote | Design of CF-02 |
 | MoM layout consistency | Varies by BA and meeting [A-03] | One standard layout | Design of CF-01 |
 
+No measurement exists yet. No by-hand or with-tool timing was recorded, and the register of sources in `assumptions.md` is empty, so every "To be measured" above stays. A small live check on the main sample gave a draft with no items dropped and no values replaced, and this is an observation, not a measurement of accuracy.
+
 ### 8.4 How we'll measure it
 
 During rehearsal, one person does the same task on the same fictional sample by hand and with the tool, including human review. The results become `SRC-xx` entries. This is a small test of one person and one sample, and we'll describe it that way.
 
 A pilot should also collect how often the BA rejects or edits an item, how many items the draft missed, and how long attendee review takes. These show whether review costs less than writing from scratch.
+
+Changed after G4: added the statement that no measurement was taken during the build. No value in 8.3 changed.

@@ -2,9 +2,11 @@
 
 ### 14.1 Process
 
-We treated this as BA work, with AI doing the drafting and people making the decisions. The proposal came first, then the tool and slides were built from the approved proposal. Specialist subagents each wrote named documents from templates, and an independent reviewer checked the spec and the final pack. Six human reviews controlled the work.
+We treated this as BA work, with AI doing the drafting and people making the decisions. The proposal came first, then the tool and slides were built from the approved proposal. Specialist subagents each wrote named documents from templates, and an independent reviewer checked the spec and the final pack. Six human reviews control the work.
 
-This section is written at spec stage. Four of the six reviews (G1 to G4) are approved. The tool review (G5) and the final pack review (G6) are still pending, so the tool is not yet built and nothing here describes a running tool. The reviewer's advice is not an approval: only a named person approved each gate, in `STATUS.md`.
+Five of the six reviews (G1 to G5) are approved in `STATUS.md`. The final pack review (G6) is pending, so nothing here says the pack is approved. The reviewer's advice is not an approval: only a named person approved each gate, in `STATUS.md`.
+
+The tool was built in slices against the frozen spec: a demo path with review, quote check and Word export, then a live path with the prompt, schema, format check and a real analyze endpoint. The as-built record (`deliverables/as-built.md`) shows all five Must functions built, FN-06 to FN-08 cut, and no changes from the spec.
 
 ### 14.2 Project structure
 
@@ -14,13 +16,13 @@ ba-hackathon-meetingscribebot/
 ├─ RUNBOOK.md         Our timeline, roles and scope-cut rules
 ├─ STATUS.md          Review log
 ├─ .claude/           Subagents, skills, templates and tool build rules
-├─ deliverables/      Proposal, assumptions, slides, notes, reviewer reports
+├─ deliverables/      Proposal, assumptions, slides, notes, reviewer reports, as-built record
 └─ our-tool/          The deployed tool
 ```
 
 ### 14.3 Review log
 
-Copied from `STATUS.md`. G5 and G6 are pending.
+Copied from `STATUS.md`. G6 is pending.
 
 | Gate | Review | Decider | Approved at | Decisions and accepted flags |
 |---|---|---|---|---|
@@ -28,14 +30,14 @@ Copied from `STATUS.md`. G5 and G6 are pending.
 | G2 | Solution choice | A, with the team (approved by Viet) | 2026-11-02 03:54 | Option A, Evidence-linked MoM drafter, because it has the highest score. Scores are team judgement [A-08] |
 | G3 | Design | B (Phong) | 2026-11-02 03:59 | 3 core features (CF-01 to CF-03), Level 1, scope limits kept. Open: A-09 (Word format, pending Q-02), A-10, A-11. Earlier recorded by Viet at 03:58 |
 | G4 | Spec freeze | B (approved by Viet) | 2026-11-02 04:13 | Spec frozen: 5 Must functions, 1 screen, Level 1, two samples. Reviewer: Pass with flags, all 10 findings fixed. Accepted: planted quote in sample 02 trips the mechanical check on purpose [A-17]. Open: A-09, A-12, A-15 |
-| G5 | Tool freeze | C (Ngan) | Pending | Not yet reviewed |
+| G5 | Tool freeze | C (Ngan), approved by Viet | 2026-11-02 07:55 | Tool frozen at commit a5f6768 (tool code 33a83c1), Level 1, 5 Must functions built, FN-06 to FN-08 cut, model claude-haiku-5-5, prompt v1. Control baseline 12 of 12 Yes. Open: audit trail counts decision, offline and network-log checks not yet confirmed, S07 timing not recorded, A-12, A-15, A-16 |
 | G6 | Final pack and go/no-go | A (Viet) | Pending | Not yet reviewed |
 
-For G1, G2 and G4 the person who approved in `STATUS.md` (Viet) is not the decider named in the gate table. We record this as it stands and do not describe it as an independent review by the decider. G3 was approved by its decider (Phong).
+For G1, G2, G4 and G5 the person who approved in `STATUS.md` (Viet) is not the decider named in the gate table. We record this as it stands and do not describe it as an independent review by the decider. G3 was approved by its decider (Phong). The "12 of 12 Yes" baseline is the tool lead's own as-built record, and several of its Yes entries rest on tests and a headless-browser run, not on a person watching the live site (L-11).
 
 ### 14.4 Where people changed the AI's work
 
-This table lists only changes recorded in `STATUS.md` and `deliverables/reviews/spec-review.md` at the time of writing. It is short because the tool is not built, and we do not invent overrides. `STATUS.md` does not record who made each fix, so we do not claim which person typed which edit. After G5 the closeout adds the changes made while building.
+This table lists changes recorded in `STATUS.md`, `deliverables/reviews/spec-review.md` and `deliverables/as-built.md`. `STATUS.md` does not record who made each fix, so we do not claim which person typed which edit. We do not invent overrides.
 
 | Review | What the AI proposed | What people changed | Why |
 |---|---|---|---|
@@ -44,6 +46,11 @@ This table lists only changes recorded in `STATUS.md` and `deliverables/reviews/
 | G4 | The reviewer suggested measuring the 20,000-character limit, or raising it and tagging it | People accepted the limit as an open flag (A-12) and chose to record a long-meeting limitation (L-01) instead of measuring | The limit was not measured before the freeze. The flag stays open and is stated in the proposal, not hidden |
 | G4 | Sample result with the quote check removing nothing (0 removed) | A second, hand-prepared stress-test sample with one planted quote was added, and people accepted that it trips the mechanical check on purpose [A-17] | So the quote check is visible in Demo mode |
 | G4 | Option C scored 72 in the options table | Corrected to 70 after review; the ranking did not change | Arithmetic error found by the reviewer |
+| G5 (as-built) | Three optional functions in the spec: click a quote to highlight it (FN-06), copy accepted items as text (FN-07), add a missed item (FN-08) | People cut all three | To protect the build window. The five Must functions were built |
+| G5 | The built Word audit trail does not show the removed and replaced counts | Left as it is, and recorded as an open decision. The proposal states it as a limitation (L-10), not as a feature | The spec did not ask for it, and the team has not decided whether to add it |
+| G5 (as-built) | The deployed model setting is `claude-haiku-5-5` while `.env.example` lists a different sample value | Recorded in `as-built.md` as a known issue. The example file holds no secret | So nobody reads the example file as the deployed setting |
+
+The tool followed the frozen spec with no changes, so no spec-level override happened during the build.
 
 ### 14.5 Prepared beforehand and built on the day
 
@@ -51,8 +58,11 @@ This table lists only changes recorded in `STATUS.md` and `deliverables/reviews/
 |---|---|
 | Toolkit: subagents, skills, templates, review process, deployment skeleton and design system | Use case analysis, proposal, tool, slides, speaker notes and demo |
 
-Detail at this stage:
+Detail:
 
-- **Built on the day so far:** Sections 1 to 9, A1 to A4 and the two hand-prepared samples (the proposal and spec at G1 to G4), and the closeout sections 10 to 15 in draft. The commit log also shows a foundation commit after G4 (an AI adapter and an access-code-protected analyze endpoint with an input limit). We have not tested it for this document, so we make no claim about it.
-- **Not yet built:** The screen, the checks, the Word export and Demo mode. They are specified in A3 and A4 and are not built or tested.
+- **Built on the day:** Sections 1 to 15 and A1 to A4 of the proposal, the two hand-prepared samples, the tool (demo path, then live path), the as-built record, and the draft slides and speaker notes. The commit log shows the order: spec stage, demo path, slides and notes draft, closeout draft, live path, as-built record.
 - **Prepared by hand, not captured from a live AI run:** Both saved samples [A-15, A-17].
+- **Checked, and how:** Automated tests in `our-tool/tests/` and a headless-browser smoke test on a local copy, as recorded in `as-built.md`. The team also ran the live path by hand on the deployed site. We have not re-run the tests for this document.
+- **Not confirmed on the live site:** Offline use, the network-log checks, failure with the AI switched off, a browser other than the headless one, and a narrow-window layout (L-11). No timing measurement exists (L-09).
+
+Changed after G4: this section described a spec-stage pack, with the tool unbuilt and G5 pending. It now shows G5 approved, the tool built, FN-06 to FN-08 cut, and the open items from `as-built.md`.

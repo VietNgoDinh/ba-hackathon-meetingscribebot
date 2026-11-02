@@ -11,4 +11,6 @@ BA teams need accurate MoMs, but today each transcript is read and written up by
 
 ### 1.3 What we're proposing
 
-The team is building a Level 1 web tool with three core features: a MoM draft, evidence quotes with gap flags, and review with Word download. Wider use would need approval of the AI provider and hosting for real data, testing on real transcripts, and a decision on whether to add history.
+The team built and deployed a Level 1 web tool with three core features: a MoM draft, evidence quotes with gap flags, and review with Word download. It matches the frozen spec, uses `claude-haiku-5-5` with prompt v1, and has been tried only on a few short fictional transcripts. Wider use would need approval of the AI provider and hosting for real data, testing on real transcripts, and a decision on whether to add history.
+
+Changed after G4: "is building" became "built and deployed", with the model, prompt version and the size of testing so far. The proposal itself is unchanged.
