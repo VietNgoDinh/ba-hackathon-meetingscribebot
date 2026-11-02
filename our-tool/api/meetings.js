@@ -63,7 +63,10 @@ export function createMeetings({ store }) {
       } catch (error) {
         // Log the safe reason only. Never log minutes, the key or the access code.
         console.error(error instanceof StoreError ? error.message : "Unexpected error");
-        return fail(502, request.method === "POST" ? MESSAGES.saveFailed : MESSAGES.loadFailed);
+        const message = request.method === "POST" ? MESSAGES.saveFailed : MESSAGES.loadFailed;
+        // The reason holds a status number only, so it is safe to show and helps the team find the cause.
+        const reason = error instanceof StoreError ? error.message : undefined;
+        return Response.json({ error: { message, reason } }, { status: 502 });
       }
     },
   };

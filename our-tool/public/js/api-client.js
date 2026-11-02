@@ -44,7 +44,10 @@ async function callMeetings(path, { method = "GET", accessCode, body, fallback }
   } catch {
     // Handled below.
   }
-  if (!response.ok || !data) throw new Error(data?.error?.message ?? fallback);
+  if (!response.ok || !data) {
+    const reason = data?.error?.reason;
+    throw new Error(`${data?.error?.message ?? fallback}${reason ? ` (${reason})` : ""}`);
+  }
   return data;
 }
 

@@ -127,7 +127,9 @@ test("a database failure returns 502 with plain messages and logs no minutes", a
     const api = createMeetings({ store: fakeStore({ broken: true }) });
     const save = await api.fetch(request("POST", { body: minutes({}) }));
     assert.equal(save.status, 502);
-    assert.equal((await save.json()).error.message, MESSAGES.saveFailed);
+    const saveBody = await save.json();
+    assert.equal(saveBody.error.message, MESSAGES.saveFailed);
+    assert.equal(saveBody.error.reason, "Storage request failed (500)");
     const list = await api.fetch(request("GET"));
     assert.equal(list.status, 502);
     assert.equal((await list.json()).error.message, MESSAGES.loadFailed);
